@@ -1,9 +1,11 @@
-<app-loading></app-loading>
-<input type="text"><button>Buscar</button>
-<div>
-    <app-card *ngIf="data != undefined; else noResults"></app-card>
+<div class="container">
+    <app-loading></app-loading>
+    <input type="text"><button>Buscar</button>
+    <div>
+        <app-card *ngIf="data != undefined; else noResults"></app-card>
+    </div>
+    
+    <ng-template #noResults>
+    
+    </ng-template>
 </div>
-
-<ng-template #noResults>
-
-</ng-template>
