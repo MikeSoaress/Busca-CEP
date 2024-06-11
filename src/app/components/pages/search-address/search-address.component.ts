@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Adress } from 'src/app/types/adress.interface';
 import { GetAdressService } from 'src/app/services/get-adress.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -8,12 +9,18 @@ import { GetAdressService } from 'src/app/services/get-adress.service';
   templateUrl: './search-address.component.html',
   styleUrls: ['./search-address.component.css']
 })
-export class SearchAddressComponent implements OnInit {
-  adress! : Adress;
-  txtCep! : string
-  exibirLayerCarregamento: boolean = false;
 
-  constructor(private getAdress: GetAdressService) { }
+export class SearchAddressComponent implements OnInit {
+  form!: FormGroup;
+  adress!: Adress;
+  exibirLayerCarregamento: boolean = false;
+  formSubmitted!: boolean;
+
+  constructor(private getAdress: GetAdressService, private fb: FormBuilder) {
+    this.form = this.fb.group({
+      cep: ['', [Validators.required, Validators.minLength(3)]],
+    })
+   }
 
   ngOnInit(): void {
 
@@ -22,11 +29,16 @@ export class SearchAddressComponent implements OnInit {
   
   searchAddress()
   {
-    this.exibirLayerCarregamento = true;
-    this.getAdress.getAdress(this.txtCep).subscribe(data => 
+    this.formSubmitted = true;
+
+    if(this.form.valid)
       {
-        this.adress = data;
-        this.exibirLayerCarregamento = false;
-      })
+        this.exibirLayerCarregamento = true;
+        this.getAdress.getAdress(this.form.get('cep')!.value).subscribe(data => 
+          {
+            this.adress = data;
+            this.exibirLayerCarregamento = false;
+          });
+      }
   }
 }

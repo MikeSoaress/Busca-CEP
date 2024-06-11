@@ -1,6 +1,13 @@
 <div class="container">
     <app-loading [exibirIcone]="exibirLayerCarregamento"></app-loading>
-    <input type="text" [(ngModel)]="txtCep"><button (click)="searchAddress()">Buscar</button>
+    <form [formGroup]="form" >
+        <input type="text" formControlName="cep">
+        <button (click)="searchAddress()">Buscar</button>
+    </form>
+    <div *ngIf="formSubmitted">
+        <div *ngIf="form.get('cep')!.errors?.['required']">Informe um CEP</div>
+        <div *ngIf="form.get('cep')!.errors?.['minlength']">Informe ao menos 3 caracteres</div> 
+    </div> 
     <div>
         <app-card *ngIf="adress != undefined; else noResults" [adress]="adress"></app-card>
     </div>
