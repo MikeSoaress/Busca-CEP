@@ -1,7 +1,7 @@
 export interface Adress
 {
-    estado: string,
-    cidade: string,
+    uf: string,
+    localidade: string,
     bairro: string,
     logradouro: string,
     complemento: string,

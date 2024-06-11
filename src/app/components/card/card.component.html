@@ -1,28 +1,28 @@
 <div class="card-endereco mt-4">
-  <div>
+  <div >
     <div class="grupo">
       <label>Estado</label>
-      <p></p>
+      <p>{{adress.uf}}</p>
     </div>
     <div class="grupo">
       <label>Cidade</label>
-      <p>city</p>
+      <p>{{adress.localidade}}</p>
     </div>
     <div class="grupo">
       <label>Bairro</label>
-      <p>bairro</p>
+      <p>{{adress.bairro}}</p>
     </div>
     <div class="grupo">
       <label>Logradouro</label>
-      <p></p>
+      <p>{{adress.logradouro}}</p>
     </div>
     <div class="grupo">
       <label>Complemento</label>
-      <p></p>
+      <p>{{adress.complemento}}</p>
     </div>
     <div class="grupo">
       <label>DDD</label>
-      <p></p>
+      <p>{{adress.ddd}}</p>
     </div>
   </div>
 
@@ -40,12 +40,12 @@
       </thead>
       <tbody>
         <tr>
-          <td>cidade</td>
-          <td>bairro</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{adress.uf}}</td>
+          <td>{{adress.localidade}}</td>
+          <td>{{adress.bairro}}</td>
+          <td>{{adress.logradouro}}</td>
+          <td>{{adress.complemento}}</td>
+          <td>{{adress.ddd}}</td>
         </tr>
       </tbody>
     </table>

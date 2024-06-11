@@ -8,6 +8,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
 import { SearchAddressComponent } from './components/pages/search-address/search-address.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { LoadingComponent } from './components/loading/loading.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

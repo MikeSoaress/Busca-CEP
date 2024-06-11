@@ -1,9 +1,13 @@
 <div class="container">
     <app-loading></app-loading>
-    <input type="text"><button>Buscar</button>
+    <input type="text" [(ngModel)]="txtCep"><button (click)="searchAddress()">Buscar</button>
     <div>
-        <app-card *ngIf="data == undefined; else noResults"></app-card>
+        <app-card *ngIf="adress != undefined; else noResults" [adress]="adress"></app-card>
     </div>
     
-    <ng-template #noResults></ng-template>
+    <ng-template #noResults>
+        <span>Nenhum resultado a ser exibido</span>
+    </ng-template>
+
+    <app-loading></app-loading>
 </div>

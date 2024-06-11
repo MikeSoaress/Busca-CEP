@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Adress } from 'src/app/types/adress.interface';
+import { GetAdressService } from 'src/app/services/get-adress.service';
+
 
 @Component({
   selector: 'app-search-address',
@@ -6,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-address.component.css']
 })
 export class SearchAddressComponent implements OnInit {
-  data :any;
-  constructor() { }
+  adress! : Adress;
+  txtCep! : string
+
+  constructor(private getAdress: GetAdressService) { }
 
   ngOnInit(): void {
+
   }
 
+  
+  searchAddress()
+  {
+    this.getAdress.getAdress(this.txtCep).subscribe(data => 
+      {
+        this.adress = data;
+        console.log(this.adress);
+      })
+  }
 }
