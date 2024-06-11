@@ -4,7 +4,7 @@
         <span>Receba informações de endereço a partir do CEP.</span>
     </div>
     <form [formGroup]="form" class="d-flex justify-content-center">
-        <input class="form-control" placeholder="Informe o CEP" type="tel" formControlName="cep">
+        <input class="form-control" placeholder="Informe o CEP" type="tel" mask="00000-000" formControlName="cep">
         <button class="btn" (click)="searchAddress()">Buscar</button>
     </form>
     <div  class="text-center mt-4 container-alerta">
