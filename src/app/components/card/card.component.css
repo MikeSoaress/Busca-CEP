@@ -1,6 +1,10 @@
+
 .mobile
 {
     display: inherit;
+    padding: 1rem 2rem;
+    border: solid 1px #0000001a;
+    border-radius: 10px;
 }
 
 .desktop

@@ -1,18 +1,22 @@
-<div class="container">
-    <app-loading [exibirIcone]="exibirLayerCarregamento"></app-loading>
-    <form [formGroup]="form" >
-        <input type="text" formControlName="cep">
-        <button (click)="searchAddress()">Buscar</button>
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1>Busca CEP</h1>
+        <span>Receba informações de endereço a partir do CEP.</span>
+    </div>
+    <form [formGroup]="form" class="d-flex justify-content-center">
+        <input class="form-control" placeholder="Informe o CEP" type="tel" formControlName="cep">
+        <button class="btn" (click)="searchAddress()">Buscar</button>
     </form>
-    <div *ngIf="formSubmitted">
-        <div *ngIf="form.get('cep')!.errors?.['required']">Informe um CEP</div>
-        <div *ngIf="form.get('cep')!.errors?.['minlength']">Informe ao menos 3 caracteres</div> 
+    <div  class="text-center mt-4 container-alerta">
+        <div class="erro" *ngIf="cep!.invalid && formSubmitted">CEP deve possuir 8 caracteres</div> 
     </div> 
-    <div>
-        <app-card *ngIf="adress != undefined; else noResults" [adress]="adress"></app-card>
+    <div  class="mt-5 list-cards">
+        <app-card *ngIf="cepEncontrado" [adress]="adress"></app-card>
     </div>
     
-    <ng-template #noResults>
-        <span>Nenhum resultado a ser exibido</span>
-    </ng-template>
+    <div *ngIf="cepEncontrado === false" class="text-center mt-5">
+        <span >CEP não encontrado.</span>
+    </div>
 </div>
+<app-loading [exibirIcone]="exibirLayerCarregamento"></app-loading>
+

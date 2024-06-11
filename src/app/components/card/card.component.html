@@ -1,27 +1,27 @@
-<div class="card-endereco mt-4">
+<div class="mt-5">
   <div class="mobile">
     <div class="grupo">
-      <label>Estado</label>
+      <b>Estado</b>
       <p>{{adress.uf}}</p>
     </div>
     <div class="grupo">
-      <label>Cidade</label>
+      <b>Cidade</b>
       <p>{{adress.localidade}}</p>
     </div>
     <div class="grupo">
-      <label>Bairro</label>
+      <b>Bairro</b>
       <p>{{adress.bairro}}</p>
     </div>
     <div class="grupo">
-      <label>Logradouro</label>
+      <b>Logradouro</b>
       <p>{{adress.logradouro}}</p>
     </div>
     <div *ngIf="adress.complemento" class="grupo">
-      <label>Complemento</label>
+      <b>Complemento</b>
       <p>{{adress.complemento}}</p>
     </div>
     <div class="grupo">
-      <label>DDD</label>
+      <b>DDD</b>
       <p>{{adress.ddd}}</p>
     </div>
   </div>

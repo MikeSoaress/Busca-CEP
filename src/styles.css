@@ -3,3 +3,11 @@
     padding: 0px;
     margin:0px
 }
+
+:root {
+    --primary-color: #053172;
+    --white-color: #f6f6f6;
+    --dark-color: #1b1b1b;
+    --red-color: #e00000;
+
+  }

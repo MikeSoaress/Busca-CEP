@@ -1,0 +1,26 @@
+input
+{
+    max-width: 500px;
+    width: 50%;
+    margin-right: 10px;
+}
+.erro
+{
+    color: var(--red-color);
+}
+
+.container-alerta
+{
+    height: 1px;
+}
+
+.list-cards
+{
+    border-top: solid 1px var(--primary-color);
+}
+
+.btn
+{
+    background-color: var(--primary-color);
+    color: var(--white-color)
+}

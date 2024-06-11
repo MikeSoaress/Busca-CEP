@@ -15,10 +15,11 @@ export class SearchAddressComponent implements OnInit {
   adress!: Adress;
   exibirLayerCarregamento: boolean = false;
   formSubmitted!: boolean;
+  cepEncontrado: Boolean | null = null;
 
   constructor(private getAdress: GetAdressService, private fb: FormBuilder) {
     this.form = this.fb.group({
-      cep: ['', [Validators.required, Validators.minLength(3)]],
+      cep: ['', [Validators.required, Validators.maxLength(8),Validators.minLength(8)]]
     })
    }
 
@@ -26,18 +27,31 @@ export class SearchAddressComponent implements OnInit {
 
   }
 
+  get cep()
+  {
+    return this.form.get('cep');
+  }
   
   searchAddress()
   {
     this.formSubmitted = true;
 
+    console.log(this.cepEncontrado);
     if(this.form.valid)
       {
+
         this.exibirLayerCarregamento = true;
         this.getAdress.getAdress(this.form.get('cep')!.value).subscribe(data => 
           {
             this.adress = data;
             this.exibirLayerCarregamento = false;
+
+            if(this.adress.localidade != undefined)
+                this.cepEncontrado = true;
+
+            else
+            this.cepEncontrado = false;
+
           });
       }
   }
