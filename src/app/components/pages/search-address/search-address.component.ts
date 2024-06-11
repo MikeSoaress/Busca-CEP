@@ -11,6 +11,7 @@ import { GetAdressService } from 'src/app/services/get-adress.service';
 export class SearchAddressComponent implements OnInit {
   adress! : Adress;
   txtCep! : string
+  exibirLayerCarregamento: boolean = false;
 
   constructor(private getAdress: GetAdressService) { }
 
@@ -21,10 +22,11 @@ export class SearchAddressComponent implements OnInit {
   
   searchAddress()
   {
+    this.exibirLayerCarregamento = true;
     this.getAdress.getAdress(this.txtCep).subscribe(data => 
       {
         this.adress = data;
-        console.log(this.adress);
+        this.exibirLayerCarregamento = false;
       })
   }
 }

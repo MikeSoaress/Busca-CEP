@@ -1,5 +1,5 @@
 <div class="container">
-    <app-loading></app-loading>
+    <app-loading [exibirIcone]="exibirLayerCarregamento"></app-loading>
     <input type="text" [(ngModel)]="txtCep"><button (click)="searchAddress()">Buscar</button>
     <div>
         <app-card *ngIf="adress != undefined; else noResults" [adress]="adress"></app-card>
@@ -8,6 +8,4 @@
     <ng-template #noResults>
         <span>Nenhum resultado a ser exibido</span>
     </ng-template>
-
-    <app-loading></app-loading>
 </div>

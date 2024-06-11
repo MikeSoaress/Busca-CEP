@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-loading',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoadingComponent implements OnInit {
 
   constructor() { }
+  @Input() exibirIcone: boolean = false;
 
   ngOnInit(): void {
   }
