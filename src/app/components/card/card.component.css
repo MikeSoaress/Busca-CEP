@@ -1,5 +1,22 @@
-.card-endereco
+.mobile
 {
-    padding: 1rem 2rem;
-    border: solid 1px #ebebeb;
+    display: inherit;
 }
+
+.desktop
+{
+    display: none;
+}
+
+@media (min-width: 1000px) {
+    .mobile
+    {
+        display: none;
+    }
+    
+    .desktop
+    {
+        display: inherit;
+    }
+
+    }

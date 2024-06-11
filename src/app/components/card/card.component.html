@@ -1,5 +1,5 @@
 <div class="card-endereco mt-4">
-  <div >
+  <div class="mobile">
     <div class="grupo">
       <label>Estado</label>
       <p>{{adress.uf}}</p>
@@ -16,7 +16,7 @@
       <label>Logradouro</label>
       <p>{{adress.logradouro}}</p>
     </div>
-    <div class="grupo">
+    <div *ngIf="adress.complemento" class="grupo">
       <label>Complemento</label>
       <p>{{adress.complemento}}</p>
     </div>
@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <div>
+  <div class="desktop">
     <table class="table">
       <thead>
         <tr>
@@ -34,7 +34,7 @@
           <th scope="col">Cidade</th>
           <th scope="col">Bairro</th>
           <th scope="col">Logradouro</th>
-          <th scope="col">Complemento</th>
+          <th *ngIf="adress.complemento" scope="col">Complemento</th>
           <th scope="col">DDD</th>
         </tr>
       </thead>
@@ -44,7 +44,7 @@
           <td>{{adress.localidade}}</td>
           <td>{{adress.bairro}}</td>
           <td>{{adress.logradouro}}</td>
-          <td>{{adress.complemento}}</td>
+          <td *ngIf="adress.complemento">{{adress.complemento}}</td>
           <td>{{adress.ddd}}</td>
         </tr>
       </tbody>
